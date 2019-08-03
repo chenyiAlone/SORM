@@ -7,8 +7,9 @@ import java.sql.SQLException;
  * 
  * ClassName: JDBCUtils
  * @author chenyiAlone  
- * Create Time: 2019/08/03 17:29:18
- * Description: 
+ * Create Time: 2018/01/05 16:52:10
+ * Description: JDBC 的工具类
+ * 1. 给 PreparedStatement 设定多个 Object[] params 参数
  */
 public class JDBCUtils {
     /**

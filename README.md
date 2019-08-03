@@ -43,12 +43,12 @@ src
 
 > **`db.properties`** 是数据库以及 **`SORM`** 的配置类，位于 `src` 目录下
 
- 属性     |  注释
---------- | -------
-`src`     | 绝对对路径
-`usingDB` | 数据库类型
-`srcPath` | `src` 的绝对路径
-`poPackage` 生成对应类的包位置
+ 属性       |   注释
+----------- | -------
+`src`       | 绝对对路径
+`usingDB`   | 数据库类型
+`srcPath`   | `src` 的绝对路径
+`poPackage` | 生成对应类的包位置
 
 **示例配置**
 
@@ -126,5 +126,18 @@ poPackage = com.po
 
     Number queryNumber(String sql, Object[] params)
 ```
+
+
+## 难点
+
+1. 数据库中表信息的封装
+
+    > 从数据库连接中获取数据库中所有的表的集合，遍历集合，将表的所有的属性转化为 `java` 类型后，将字段名称和对应的 `java` 类型保存到 `TableInfo` 对象的 `Map<String, ColumnInfo>` 中，**表名** 和 **`TableInfo` 对象** 保存在 `Map<Class, TableInfo>` 中，用于后面的 **根据数据库生成 `java bean`** 和 **通过对象对数据库进行操作**
+
+2. `ReflectUtils` 通过反射调用对象指定成员变量的 `setter | getter` 方法
+
+3. 使用对象实例来完成对数据库的操作
+
+    > `Query # executeDML` 为核心方法，建立数据库连接，通过 `PreparedStatement` 使用给定的 `Object[] args` 参数列表来和各种方法拼出来的 `sql` 语句来完成对数据的操作
 
 
