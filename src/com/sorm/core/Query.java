@@ -39,39 +39,32 @@ public interface Query {
     /**
      * 执行一个DML语句
      * 
-     * @param sql
-     *            DML语句
-     * @param params
-     *            参数
+     * @param sql       DML语句
+     * @param params    参数
      */
     abstract int executeDML(String sql, Object[] params);
 
     /**
      * 
-     * @return
+     * @return 
      */
     abstract Object queryValue(String sql, Object[] params);
 
     /**
      * 修改数据
      * 
-     * @param obj
-     *            sql参数
-     * @param filedName
-     *            sql参数列表
-     * @return 修改的行数
+     * @param obj           sql参数
+     * @param filedName     sql参数列表
+     * @return              修改的行数
      */
     abstract int update(Object obj, String[] filedName);
 
     /**
      * 查找返回多行多列
      * 
-     * @param sql
-     *            DML语句
-     * @param clazz
-     *            class对象
-     * @param params
-     *            参数
+     * @param sql       DML语句
+     * @param clazz     class对象
+     * @param params    参数
      * @return 封装了多行数据的Object的List
      */
     abstract List<Object> queryRows(String sql, Class clazz, Object[] params);
@@ -79,12 +72,9 @@ public interface Query {
     /**
      * 查找返回单行
      * 
-     * @param sql
-     *            DML语句
-     * @param clazz
-     *            Class对象
-     * @param params
-     *            参数
+     * @param sql       DML语句
+     * @param clazz     Class对象
+     * @param params    参数
      * @return 封装了一行数据的Object对象
      */
     abstract Object queryUniqueRow(String sql, Class clazz, Object[] params);
@@ -92,11 +82,9 @@ public interface Query {
     /**
      * 查询一行一列并返回查询到的数字
      * 
-     * @param sql
-     *            DML语句
-     * @param params
-     *            参数
-     * @return 查询到的数字
+     * @param sql       DML语句
+     * @param params    参数
+     * @return          查询到的数字
      */
     abstract Number queryNumber(String sql, Object[] params);
 
